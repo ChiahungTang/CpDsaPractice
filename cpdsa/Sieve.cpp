@@ -4,7 +4,7 @@
 using namespace std;
 
 const int SIZE = 1e6;
-const int SIZE = 1e6 + 1;
+const int SIZE_N = 1e6 + 1;
 bool tb[SIZE_N];
 
 void sieve(vector<long long> &v) {
