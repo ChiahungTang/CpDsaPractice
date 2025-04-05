@@ -29,6 +29,13 @@ class QU {
       return u == v;
     }
 
+    int getSize(int v) {
+      while (buf[v] != v) {
+        v = buf[v];
+      }
+      return weight[v];
+    }
+
     void connect(int u, int v) {
       int pathu = 1;
       int pathv = 1;
@@ -41,12 +48,16 @@ class QU {
         pathv++;
       }
 
+      if (u == v) {
+        return;
+      }
+
       if (weight[u] < weight[v]) {
-        buf[v] = u;
-        weight[v] += weight[u];
-        weight[u] = weight[v];
-      } else {
         buf[u] = v;
+        weight[v] += weight[u];
+      } else {
+        buf[v] = u;
+        weight[u] += weight[v];
       }
     }
 };
